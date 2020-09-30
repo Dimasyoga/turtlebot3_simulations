@@ -44,19 +44,43 @@ bool Turtlebot3Fake::init()
     wheel_seperation_ = 0.160;
     turning_radius_   = 0.080;
     robot_radius_     = 0.105;
+
+    nh_.param("wheel_left_joint_name", joint_states_name_[LEFT],  std::string("wheel_left_joint"));
+    nh_.param("wheel_right_joint_name", joint_states_name_[RIGHT],  std::string("wheel_right_joint"));
+    nh_.param("joint_states_frame", joint_states_.header.frame_id, std::string("base_footprint"));
+    nh_.param("odom_frame", odom_.header.frame_id, std::string("odom"));
+    nh_.param("base_frame", odom_.child_frame_id, std::string("base_footprint"));
   }
   else if (!robot_model.compare("waffle") || !robot_model.compare("waffle_pi"))
   {
     wheel_seperation_ = 0.287;
     turning_radius_   = 0.1435;
     robot_radius_     = 0.220;
+
+    nh_.param("wheel_left_joint_name", joint_states_name_[LEFT],  std::string("wheel_left_joint"));
+    nh_.param("wheel_right_joint_name", joint_states_name_[RIGHT],  std::string("wheel_right_joint"));
+    nh_.param("joint_states_frame", joint_states_.header.frame_id, std::string("base_footprint"));
+    nh_.param("odom_frame", odom_.header.frame_id, std::string("odom"));
+    nh_.param("base_frame", odom_.child_frame_id, std::string("base_footprint"));
+  }
+  else if (!robot_model.compare("covid"))
+  {
+    wheel_seperation_ = 0.5;
+    turning_radius_   = 0.25;
+    robot_radius_     = 0.6;
+
+    nh_.param("wheel_left_joint_name", joint_states_name_[LEFT],  std::string("base_left_wheel"));
+    nh_.param("wheel_right_joint_name", joint_states_name_[RIGHT],  std::string("base_right_wheel"));
+    nh_.param("joint_states_frame", joint_states_.header.frame_id, std::string("base_footprint"));
+    nh_.param("odom_frame", odom_.header.frame_id, std::string("odom"));
+    nh_.param("base_frame", odom_.child_frame_id, std::string("base_footprint"));
   }
 
-  nh_.param("wheel_left_joint_name", joint_states_name_[LEFT],  std::string("wheel_left_joint"));
-  nh_.param("wheel_right_joint_name", joint_states_name_[RIGHT],  std::string("wheel_right_joint"));
-  nh_.param("joint_states_frame", joint_states_.header.frame_id, std::string("base_footprint"));
-  nh_.param("odom_frame", odom_.header.frame_id, std::string("odom"));
-  nh_.param("base_frame", odom_.child_frame_id, std::string("base_footprint"));
+  // nh_.param("wheel_left_joint_name", joint_states_name_[LEFT],  std::string("wheel_left_joint"));
+  // nh_.param("wheel_right_joint_name", joint_states_name_[RIGHT],  std::string("wheel_right_joint"));
+  // nh_.param("joint_states_frame", joint_states_.header.frame_id, std::string("base_footprint"));
+  // nh_.param("odom_frame", odom_.header.frame_id, std::string("odom"));
+  // nh_.param("base_frame", odom_.child_frame_id, std::string("base_footprint"));
 
   // initialize variables
   wheel_speed_cmd_[LEFT]  = 0.0;

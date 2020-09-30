@@ -34,7 +34,7 @@
 
 #include <turtlebot3_msgs/SensorState.h>
 
-#include "turtlebot3_fake.h"
+#include "robot_covid_fake.h"
 
 #define WHEEL_RADIUS                    0.17    // meter
 
