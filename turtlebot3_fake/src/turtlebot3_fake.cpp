@@ -37,7 +37,7 @@ bool Turtlebot3Fake::init()
 {
   // initialize ROS parameter
 
-  std::string robot_model = nh_.param<std::string>("tb3_model", "");
+  std::string robot_model = nh_.param<std::string>("model", "");
 
   if (!robot_model.compare("burger"))
   {
@@ -69,8 +69,8 @@ bool Turtlebot3Fake::init()
     turning_radius_   = 0.25;
     robot_radius_     = 0.6;
 
-    nh_.param("wheel_left_joint_name", joint_states_name_[LEFT],  std::string("base_left_wheel"));
-    nh_.param("wheel_right_joint_name", joint_states_name_[RIGHT],  std::string("base_right_wheel"));
+    nh_.param("wheel_left_joint_name", joint_states_name_[LEFT],  std::string("wheel_left_joint"));
+    nh_.param("wheel_right_joint_name", joint_states_name_[RIGHT],  std::string("wheel_right_joint"));
     nh_.param("joint_states_frame", joint_states_.header.frame_id, std::string("base_footprint"));
     nh_.param("odom_frame", odom_.header.frame_id, std::string("odom"));
     nh_.param("base_frame", odom_.child_frame_id, std::string("base_footprint"));
