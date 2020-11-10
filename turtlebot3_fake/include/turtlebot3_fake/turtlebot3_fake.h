@@ -36,16 +36,16 @@
 
 #include "turtlebot3_fake.h"
 
-#define WHEEL_RADIUS                    0.17    // meter
+#define WHEEL_RADIUS                    0.085    // meter
 
 #define LEFT                            0
 #define RIGHT                           1
 
-#define MAX_LINEAR_VELOCITY             0.22   // m/s
-#define MAX_ANGULAR_VELOCITY            2.84   // rad/s
-#define VELOCITY_STEP                   0.1   // m/s
-#define VELOCITY_LINEAR_X               0.1   // m/s
-#define VELOCITY_ANGULAR_Z              0.1    // rad/s
+#define MAX_LINEAR_VELOCITY             3.0   // m/s
+#define MAX_ANGULAR_VELOCITY            1.5   // rad/s
+#define VELOCITY_STEP                   0.2   // m/s
+#define VELOCITY_LINEAR_X               0.3   // m/s
+#define VELOCITY_ANGULAR_Z              1.2    // rad/s
 #define SCALE_VELOCITY_LINEAR_X         1
 #define SCALE_VELOCITY_ANGULAR_Z        1
 

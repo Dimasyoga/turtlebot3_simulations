@@ -82,7 +82,8 @@ bool Turtlebot3Fake::init()
   // nh_.param("odom_frame", odom_.header.frame_id, std::string("odom"));
   // nh_.param("base_frame", odom_.child_frame_id, std::string("base_footprint"));
 
-  // initialize variables
+  // initialize variable
+  
   wheel_speed_cmd_[LEFT]  = 0.0;
   wheel_speed_cmd_[RIGHT] = 0.0;
   goal_linear_velocity_   = 0.0;
